@@ -18,9 +18,12 @@ function App() {
    
     const [count, setCount] = useState(0);
  
-  
+    const [loading, setLoading]=useState(false);
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 1000);
     const intervalId = setInterval(() => {
       // Increment the count every 1 second
       setCount((prevCount) => (prevCount === 2 ? 0 : prevCount + 1));
@@ -34,7 +37,7 @@ function App() {
     "rgba(255, 57, 229, 0.2)",' rgba(255, 199, 57, 0.2)','rgba(255, 250, 239, 0.2)'
    ]
    const colors2=[
-    "rgba(255, 57, 229, 1)",'rgba(255, 199, 57, 1)','rgba(255, 250, 239, 1)'
+    "rgb(252,165,165)",'rgba(255, 199, 57, 1)','rgba(255, 250, 239, 1)'
    ]
    const img=[
     "https://gartcod.cloud/_next/static/media/mobile.548cdf6e.svg",
@@ -45,7 +48,7 @@ function App() {
    const [color ,setColor]=useState(colors[indexx]);
    const [color2 ,setColor2]=useState(colors2[indexx]);
   return (
-    <motion.div className="App   h-screen" style={{backgroundImage:'url("https://gartcod.cloud/_next/static/media/gradient.e25977d1.svg")', backgroundColor:colors[count] ,backgroundSize: 'cover', transition:"background-color 0.3s ease" }} >
+   <> {<motion.div className="App   h-screen" style={{backgroundImage:'url("https://gartcod.cloud/_next/static/media/gradient.e25977d1.svg")', backgroundColor:colors[count] ,backgroundSize: 'cover', transition:"background-color 0.3s ease" }} >
     <div class="fixed inset-0 opacity-30" style={{backgroundSize:"30px",backgroundImage:'url("https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F8997f779f33b430bb22ca667d1b73ade")'}}></div>
     
      <motion.div className=' fixed z-20 ' initial={{ x:[0 ,0] ,y:[0, 0]}} animate={{x:[0 ,Xpos ,Xpos ,3000], y:[0 ,Ypos, Ypos+135, -1000] }}  transition={{ duration:4, times: [0, 0.25, 0.75, 1] }}>
@@ -71,7 +74,7 @@ function App() {
        <motion.button initial={{ y:-130}} animate={{ y:0}} transition={{ duration: 2 ,delay:1}} ref={elementRef} className=' mt-5 px-5 py-2.5 z-10 rounded-md font-medium' style={{backgroundColor:colors2[count] ,transition:"color 0.3s ease"}}  >Claim Ticket</motion.button>
      </div>
     </motion.div>
-  );
+   }</>);
 }
 
 export default App;
