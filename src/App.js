@@ -13,7 +13,7 @@ function App() {
     const getPosfn=()=>{
       const rect = elementRef?.current?.getBoundingClientRect();
       setXpos(rect.x+50);
-      setYpos(rect.y);
+      setYpos(rect.y+20);
     }
    
     const [count, setCount] = useState(0);
@@ -51,7 +51,7 @@ function App() {
    <> {<motion.div className="App   h-screen" style={{backgroundImage:'url("https://gartcod.cloud/_next/static/media/gradient.e25977d1.svg")', backgroundColor:colors[count] ,backgroundSize: 'cover', transition:"background-color 0.3s ease" }} >
     <div class="fixed inset-0 opacity-30" style={{backgroundSize:"30px",backgroundImage:'url("https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F8997f779f33b430bb22ca667d1b73ade")'}}></div>
     
-     <motion.div className=' fixed z-20 ' initial={{ x:[0 ,0] ,y:[0, 0]}} animate={{x:[0 ,Xpos ,Xpos ,3000], y:[0 ,Ypos, Ypos+135, -1000] }}  transition={{ duration:2, times: [0, 0.25, 0.75, 1] }}>
+     <motion.div className=' fixed z-20 ' initial={{ x:[0 ,0] ,y:[0, 0]}} animate={{x:[0 ,Xpos ,Xpos ,Xpos ,Xpos ,3000], y:[0 ,Ypos, Ypos, Ypos+135,Ypos+135, -1000] }}  transition={{ duration:3, times: [0, 0.25, 0.45 , 0.75, 0.85, 1] }}>
   <img src ="https://gartcod.cloud/_next/static/media/designer.cf165e6f.svg"></img></motion.div>
   <img role="presentation" alt="gradient background" loading="lazy" width="1200" height="1200" decoding="async" data-nimg="1" className=' -z-20' class="fixed inset-0 w-screen h-screen object-cover" style={{color:"transparent" }} src="https://gartcod.cloud/_next/static/media/gradient.e25977d1.svg"/>
      <div className=' flex  flex-col items-center z-10'>
@@ -71,7 +71,7 @@ function App() {
        <div>
         <CountdownTimer color={colors2[count]}  targetDate={ new Date('January 31, 2024 23:59:59')}/>
        </div>
-       <motion.button initial={{ y:-130}} animate={{ y:0}} transition={{ duration: 1 ,delay:0.7}} ref={elementRef} className=' mt-5 px-5 py-2.5 z-10 rounded-md font-medium' style={{backgroundColor:colors2[count] ,transition:"color 0.3s ease"}}  >Claim Ticket</motion.button>
+       <motion.button initial={{ y:-130}} animate={{ y:0}} transition={{ duration: 1 ,delay:1.5}} ref={elementRef} className=' mt-5 px-5 py-2.5 z-10 rounded-md font-medium' style={{backgroundColor:colors2[count] ,transition:"color 0.3s ease"}}  >Claim Ticket</motion.button>
      </div>
     </motion.div>
    }</>);
