@@ -37,8 +37,9 @@ function App() {
     "rgba(255, 57, 229, 1)",'rgba(255, 199, 57, 1)','rgba(255, 250, 239, 1)'
    ]
    const img=[
-    "https://gartcod.cloud/_next/static/media/chrome.db58996d.svg",
     "https://gartcod.cloud/_next/static/media/mobile.548cdf6e.svg",
+    "https://gartcod.cloud/_next/static/media/chrome.db58996d.svg",
+   
     "https://gartcod.cloud/_next/static/media/desktop.6a735a94.svg"
    ]
    const [color ,setColor]=useState(colors[indexx]);
@@ -54,7 +55,7 @@ function App() {
       <div className=' flex mt-20  justify-center text-center items-center gap-3  flex-wrap z-10'>
         <img  src='https://gartcod.cloud/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fgartcod-without-bg.33aa91c5.png&w=128&q=75'></img>
         <h1 className=' text-white z-10 text-7xl font-extrabold mx-auto' >for </h1>
-        { img.map((data,index)=>  {return index===count&& <motion.img  key={index}  className=' w-14 z-10' src={data} />})}
+        <div><AnimatePresence mode='wait'><motion.img  key={count} initial={{ opacity:0, y:10}} animate={{ opacity:1, y:0}} exit={ {  opacity:0, y:-10}} transition={{ duration:"0.1"}}  className=' w-14 z-10' src={img[count]} /></AnimatePresence></div>
         <h1 className=' text-7xl z-10 font-extrabold' style={{color:colors2[count], transition:"color 0.3s ease"  }} >& </h1>
         <h1 className=' text-7xl font-extrabold mx-auto z-10' style={{color:colors2[count]  , transition:"color 0.3s ease" }} > Cloud</h1>
         
@@ -67,7 +68,7 @@ function App() {
        <div>
         <CountdownTimer color={colors2[count]}  targetDate={ new Date('January 31, 2024 23:59:59')}/>
        </div>
-       <motion.button initial={{ y:-130}} animate={{ y:0}} transition={{ duration: 2 ,delay:1}} ref={elementRef} className=' mt-5 px-5 py-2.5 z-10 rounded-md font-medium' style={{backgroundColor:colors2[count]}} >Claim Ticket</motion.button>
+       <motion.button initial={{ y:-130}} animate={{ y:0}} transition={{ duration: 2 ,delay:1}} ref={elementRef} className=' mt-5 px-5 py-2.5 z-10 rounded-md font-medium' style={{backgroundColor:colors2[count] ,transition:"color 0.3s ease"}}  >Claim Ticket</motion.button>
      </div>
     </motion.div>
   );

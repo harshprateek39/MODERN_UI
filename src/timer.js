@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {motion , AnimatePresence } from "framer-motion"
 
 const CountdownTimer = ({ targetDate  ,color}) => {
   const calculateTimeRemaining = () => {
@@ -24,7 +25,7 @@ const CountdownTimer = ({ targetDate  ,color}) => {
   }, [targetDate]);
 
   return (
-    <div className=' text-white flex gap-4 pt-5 z-10 , transition:"color 0.3s ease" '>
+    <div className=' text-white flex gap-4 pt-5 z-10 ,  ' style={{ transition:"color 0.3s ease"}}>
       <div className=' flex flex-col items-center z-10 '>
       <p className=' text-3xl font-bold'>{timeRemaining.days}</p>
       <p className=' text-[8px] font-medium  ' style={{color}}>DAYS</p>
@@ -38,7 +39,7 @@ const CountdownTimer = ({ targetDate  ,color}) => {
       <p className=' text-[8px] font-medium  ' style={{color}}>MINUTE</p>
       </div>
       <div className=' flex flex-col items-center z-10 '>
-      <p className=' text-3xl font-bold'>{timeRemaining.seconds}</p>
+     <AnimatePresence mode='wait'> <motion.p key={timeRemaining.seconds} exit={{ y:10, opacity:0}} transition={{ duration:0.1}} className=' text-3xl font-bold'>{timeRemaining.seconds}</motion.p></AnimatePresence>
       <p className=' text-[8px] font-medium  ' style={{color}}>SECOND</p>
       </div>
     </div>
