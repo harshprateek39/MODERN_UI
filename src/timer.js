@@ -19,7 +19,7 @@ const CountdownTimer = ({ targetDate  ,color}) => {
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining());
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(timerInterval);
   }, [targetDate]);
